@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eriks ChatBot'</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .chat-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .chat-header {
+    background-color: #3498db; /* Blue color */
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .chat-content {
+    padding: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+
+  .user-message {
+    background-color: #dff9fb;
+    align-self: flex-start;
+  }
+
+  .bot-message {
+    background-color: #f1f1f1;
+    align-self: flex-end;
+  }
+
+  .message-text {
+    font-size: 14px;
+    color: #333;
+  }
+
+  .user-input {
+    width: calc(100% - 40px);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 20px;
+    font-size: 14px;
+  }
+
+  .send-button {
+    background-color: #3498db; /* Blue color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="chat-container">
+  <div class="chat-header">
+    Erik's ChatBot
+  </div>
+  <div class="chat-content" id="chat-box">
+    <div class="message bot-message">
+      <span class="message-text">Hello! How can I assist you today?</span>
+    </div>
+  </div>
+  <input type="text" class="user-input" id="user-input" placeholder="Type your message...">
+  <button class="send-button" onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+  const chatBox = document.getElementById('chat-box');
+  const userInput = document.getElementById('user-input');
+
+  function sendMessage() {
+    const userMessage = userInput.value;
+    displayMessage(userMessage, 'user');
+    respondToUser(userMessage);
+    userInput.value = '';
+  }
+
+  function displayMessage(message, sender) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
+    messageElement.innerHTML = `<span class="message-text">${message}</span>`;
+    chatBox.appendChild(messageElement);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  function respondToUser(message) {
+    // Simple responses based on user input
+    let response;
+    switch (message.toLowerCase()) {
+      case 'hello':
+        response = 'Hi there!';
+        break;
+      case 'how are you?':
+        response = 'I\'m just a bot, but thanks for asking! What about you?';
+        break;
+      case 'Fuck off':
+        response = 'Fuck YOUSELF MF';
+        break;
+      case 'who created you':
+        response = 'I was created by Istiak Ahmed Erik';
+        break;
+      case 'who created you?':
+        response = 'I was created by Istiak Ahmed Erik';
+        break;
+      case 'how are you':
+        response = 'I\'m just a bot, but thanks for asking! What about you?';
+        break;
+      case 'i am fine':
+        response = 'Good to hear. How can i help you?';
+        break;  
+      case 'i am doing great':
+        response = 'Good to hear. How can i help you?';
+        break;  
+      case 'i am doing fine':
+        response = 'Good to hear. How can i help you?';
+        break;  
+      case 'i am also fine':
+        response = 'Good to hear. How can i help you?';
+        break;  
+      case 'How are you?':
+        response = 'I\'m just a bot, but thanks for asking! What about you?';
+        break;       
+      case 'I am fine':
+        response = 'Glad to hear. How can i help you?';
+        break;   
+      case 'How are you doing':
+        response = 'I\'m just a bot, but thanks for asking! What about you?';
+        break;   
+      case 'How are you doing?':
+        response = 'I\'m just a bot, but thanks for asking! What about you?';
+        break;   
+      case 'how are you doing':
+        response = 'I\'m just a bot, but thanks for asking! What about you?';
+        break;   
+      case 'how are you doing':
+        response = 'I\'m just a bot, but thanks for asking! What about you?';
+        break;   
+      case 'how are you doing':
+        response = 'I\'m just a bot, but thanks for asking! What about you?';
+        break;                
+      default:
+        response = 'I\'m not sure how to respond to that.';
+    }
+    setTimeout(() => displayMessage(response, 'bot'), 1000); // Simulate bot typing delay
+  }
+</script>
+</body>
+</html>
